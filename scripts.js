@@ -1,6 +1,8 @@
 const cards = document.querySelectorAll('.memory-card');
 const scoreTag = document.querySelector('.score');
 const instructionsTag = document.querySelector('.instructions');
+const board = document.querySelector('.memory-game');
+const underlay = document.querySelector('.underlay')
 
 
 let hasFlippedCard = false;
@@ -8,6 +10,15 @@ let boardLocked = false;
 let firstCard, secondCard;
 let matchedArr = [];
 let score = 0;
+
+
+function setWindowSize() {
+    let bs = getComputedStyle(board);
+    let height = bs.getPropertyValue('height');
+    let width = parseFloat(height, 10) * 5 / 4 + 'px';
+    board.style.setProperty('width', width);
+    underlay.style.setProperty('width', width);
+}
 
 
 function flipCard() {
@@ -97,3 +108,5 @@ function hasWon() {
 
 
 reset();
+setWindowSize();
+window.onresize = setWindowSize;
