@@ -42,7 +42,7 @@ body {
     height: 100%;
     padding: 0px;
     position: absolute;
-    border-radius: 5px;
+    border-radius: 10%;
 }
 
 .front-face {
