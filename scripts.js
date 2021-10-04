@@ -12,12 +12,26 @@ let matchedArr = [];
 let score = 0;
 
 
+let height, width;
+
 function setWindowSize() {
-    let bs = getComputedStyle(board);
-    let height = bs.getPropertyValue('height');
-    let width = parseFloat(height, 10) * 5 / 4 + 'px';
-    board.style.setProperty('width', width);
-    underlay.style.setProperty('width', width);
+    if(window.innerWidth >= window.innerHeight) {
+        height = window.innerHeight * 0.8;
+        width = parseFloat(height, 10) * 5 / 4 + 'px';
+        height += 'px'
+        board.style.setProperty('height', height);
+        board.style.setProperty('width', width);
+        underlay.style.setProperty('width', width);
+    } else {
+        width = window.innerWidth;
+        height = parseFloat(width, 10) * 4 / 5 + 'px';
+        width += 'px'
+        board.style.setProperty('height', height);
+        board.style.setProperty('width', width);
+        underlay.style.setProperty('width', width);
+    }  
+
+
 }
 
 
